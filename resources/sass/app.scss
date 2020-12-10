@@ -39,3 +39,15 @@
 .input-group.md-form.form-sm.form-2 input.amber-border {
     border: 1px solid #ffca28;
 }
+
+*,
+*::before,
+*::after {
+    font-family: 'Copperplate', sans-serif;
+}
+
+$fa-font-path: "../webfonts";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+@import "~@fortawesome/fontawesome-free/scss/regular";
