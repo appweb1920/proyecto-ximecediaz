@@ -1,5 +1,6 @@
 <?php
 
+use Facade\FlareClient\View;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () { return view('navbar'); });
+Route::get('/home', function(){ return view('home');});
+
+Route::get('/imagen', 'ImagenController@imagen');
+Route::post('/guardaImagen', 'ImagenController@guardaImagen');
+
