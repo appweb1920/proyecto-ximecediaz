@@ -27,6 +27,9 @@
       </li>
     </ul>
   </div>
+  <button type="button" class="btn btn-light">Donar al autor</button>
+    
+  </button>
 </nav>
 @yield('contenido')
 </body>

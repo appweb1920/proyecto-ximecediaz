@@ -2,15 +2,16 @@
 
 use Facade\FlareClient\View;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Rutas Web Banco de imágenes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+|   
+| Sólo hay un usuario y es el administrador. No hay registro de más usuarios
+| El administrador accede al portal 
+| 
 |
 */
 
@@ -19,3 +20,6 @@ Route::get('/', function(){ return view('home');});
 Route::get('/imagen', 'ImagenController@imagen');
 Route::post('/guardaImagen', 'ImagenController@guardaImagen');
 
+Route::get('/iniAdmin', 'AdminController@inicio');
+Auth::routes();
+Auth::routes(['register' => false]);
