@@ -10,8 +10,10 @@ use Illuminate\Support\Facades\Auth;
 |--------------------------------------------------------------------------
 |   
 | Sólo hay un usuario y es el administrador. No hay registro de más usuarios
-| El administrador accede al portal 
-| 
+| El administrador accede al portal desde la ruta "/iniAdmin"
+| Dentro del seeder se encuentra el administrador para autenticarse:
+| email: administrador@gmail.com
+| password: password
 |
 */
 

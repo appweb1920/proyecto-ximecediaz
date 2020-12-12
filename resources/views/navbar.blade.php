@@ -27,11 +27,14 @@
       </li>
     </ul>
   </div>
+  @auth
+    <div class="admin"><p>Administrador</p></div>
+  @endauth
   <button type="button" class="btn btn-light">Donar al autor</button>
-    
-  </button>
 </nav>
+
 @yield('contenido')
+
 </body>
 
 </html>
