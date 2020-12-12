@@ -1,15 +1,15 @@
 @extends('navbar')
 
 @section('contenido')
-<div class="imagen col col-12">
-
-  <div class="row justify-content-md-center">
+<div class="imagen d-flex align-items-center">
+  <div class="col col-12">
+  <div class="row justify-content-center mb-5">
       <div>
         <h1>Lorem ipsum dolor sit amet.</h1>
       </div>
   </div>
 
-  <div class="row justify-content-md-center">
+  <div class="row justify-content-center">
     <div class="input-group md-form form-sm form-2 pl-0" style="max-width: 80%;">
       <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search">
       <div class="input-group-append">
@@ -20,9 +20,9 @@
     </div>
   </div>
 
-  <div class="row justify-content-md-center">
+  <div class="row justify-content-center mt-4">
     <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, illo!</span>
   </div>
 </div>
-
+</div>
 @endsection

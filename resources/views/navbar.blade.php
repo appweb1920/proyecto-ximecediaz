@@ -25,7 +25,6 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Categorías</a>
       </li>
-      
     </ul>
   </div>
 </nav>

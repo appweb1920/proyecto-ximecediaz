@@ -81,4 +81,14 @@ class ImagenController extends Controller
     {
         //
     }
+
+    public function imagen()
+    {
+        return view('imagenes');
+    }
+
+    public function guardaImagen(Request $request)
+    {
+        dd($request);
+    }
 }
