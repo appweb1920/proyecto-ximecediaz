@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Secciones;
 
 class ImagenController extends Controller
 {
@@ -85,7 +86,8 @@ class ImagenController extends Controller
 
     public function imagen()
     {
-        return view('imagenes');
+        $secciones = Secciones::all();
+        return view('imagenes')->with('secciones',$secciones);
     }
 
     public function guardaImagen(Request $request)
