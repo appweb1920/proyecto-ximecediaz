@@ -4,8 +4,12 @@
 @import 'variables';
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+//Font Awesome
+@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '~@fortawesome/fontawesome-free/scss/solid.scss';
+$fa-font-path: "../webfonts";
 .admin {
-    padding: 0.375rem 0.75rem;
+    padding: 0.375rem;
 }
 
 .admin p {
