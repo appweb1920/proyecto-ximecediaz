@@ -84,6 +84,6 @@ class AdminController extends Controller
 
     public function inicio()
     {
-        return view('/layouts/app');
+        return view('/auth/login');
     }
 }

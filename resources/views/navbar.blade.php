@@ -29,6 +29,16 @@
   </div>
   @auth
     <div class="admin"><p>Administrador</p></div>
+    <div>
+      <a href="{{ route('logout') }}"
+        onclick="event.preventDefault();
+        document.getElementById('logout-form').submit();">
+        {{ __('Cerrar sesión') }}
+        </a>
+      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+        @csrf
+      </form>
+    </div>
   @endauth
   <button type="button" class="btn btn-light">Donar al autor</button>
 </nav>
