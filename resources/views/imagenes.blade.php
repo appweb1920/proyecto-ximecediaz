@@ -8,7 +8,7 @@
 <body>
     <h1>Prueba</h1>
 
-    <form action="/guardarImagen" method="POST" enctype="multipart/form-data">
+    <form action="/guardaImagen" method="POST" enctype="multipart/form-data">
         @csrf
         <input type="file" id="imagen" name="imagen" accept="image/png, image/jpeg">
         <input type="submit">

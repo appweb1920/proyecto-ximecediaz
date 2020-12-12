@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ImagenController extends Controller
 {
@@ -89,6 +90,23 @@ class ImagenController extends Controller
 
     public function guardaImagen(Request $request)
     {
-        dd($request);
+        $imagen = $request->file('imagen');
+        //$nombre = "ejemplo.png";
+        
+        if($imagen->getClientOriginalExtension()!="png"){
+            return "no se soporta el archivo";
+        }else{
+           $path = $request->file('imagen')->storeAs(
+            '/public/imgs', "hola".".".$imagen->getClientOriginalExtension()
+            ); 
+        }
+        
+
+        /*$path = $imagen->path();
+        
+        $imagen->mover('../public_html/img/', $imagen);
+*/
+
+        dd($path);
     }
 }
