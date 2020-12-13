@@ -16,8 +16,6 @@ class CreateSeccionesTable extends Migration
         Schema::create('secciones', function (Blueprint $table) {
             $table->id();
             $table->string('seccion');
-            $table->unsignedBigInteger('idImagen')->nullable();
-            $table->foreign('idImagen')->references('id')->on('imagen');
             $table->timestamps();
         });
     }

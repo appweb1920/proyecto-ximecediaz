@@ -30,5 +30,11 @@
   <a class="btn btn-primary btn-lg btn-block" href="/imagen">Agregar imágenes</a>
   </div>
   @endauth
-  
+  <div class="fotos">
+    @if(!is_null($imagenes))
+      @foreach($imagenes as $i)
+         <span>{{$i->titulo}}</span>
+      @endforeach
+    @endif
+  </div>
 @endsection

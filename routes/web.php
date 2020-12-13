@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function(){ return view('home');});
+Route::get('/', 'ImagenController@index');
 
 Route::get('/imagen', 'ImagenController@imagen');
 Route::post('/guardaImagen', 'ImagenController@guardaImagen');

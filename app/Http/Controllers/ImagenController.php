@@ -18,6 +18,7 @@ class ImagenController extends Controller
     public function index()
     {
         $imagenes = Imagenes::all();
+        return view('home')->with('imagenes', $imagenes);
     }
 
     /**
@@ -106,16 +107,17 @@ class ImagenController extends Controller
             ); 
         }
         
-        $imagenes = new Imagenes;
-        $imagenes->titulo = $request->titulo;
-        $imagenes->nombre = $nombre;
-        $imagenes->save();
+        $foto = new Imagenes;
+        $foto->titulo = $request->titulo;
+        $foto->nombre = $nombre;
+        $foto->save();
         $relacion = new relacion;
 
         $idSecciones = $request->get('categorias');
         $relacion->idSeccion = $secciones->get($idSecciones);
-        $relacion->idImagen = $imagenes->id;
+        $relacion->idImagen = $foto->id;
         
-        return view('home');//->with('imagenes', $imagenes);
+        $imagenes = Imagenes::all();
+        return view('home')->with('imagenes', $imagenes);
     }
 }
