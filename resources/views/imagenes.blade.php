@@ -8,27 +8,38 @@
         @csrf
         <div class="col">
             <div class="row">
-        <input type="file" id="imagen" name="imagen" accept="image/png, image/jpeg"></div>
-        <div class="row">
-        <input type="submit"></div>
+                <input type="file" id="imagen" name="imagen" accept="image/png, image/jpeg">
+            </div>
+            <div class="row">
+                <input type="submit">
+            </div>
 
-        <h2>Categoría</h2>
-        <div class="row">
-            <div class="col-md-12">
+            <h2>Categoría</h2>
 
-                <select class="mdb-select colorful-select dropdown-primary md-form" multiple searchable="Search here..">
-                    <option value="" disabled selected>Escoge la categoría</option>
+            <div class="row">
+                <div class="col-md-12">
                     @if(!is_null($secciones))
                         @foreach($secciones as $s)
-                            <option value="{{$s->id}}">{{$s->seccion}}</option>
+                            <div class="checkbox">
+                                <label><input type="checkbox" value="{{$s->id}}">{{$s->seccion}}</label>
+                            </div>    
                         @endforeach
                     @endif
-                </select>
+                    
+                </div>
             </div>
         </div>
-        </div>
     </form>
-
+    <form action="/agregaSecciones" method="POST">
+    @csrf
+    <div>
+    <a href="javascript:void(0);" class="add_boton"><i class="fas fa-plus-circle fa-3x text-danger"></i></a>
+                    <div class="inputs"></div></div>
+    <input type="hidden" class="num" name="num" value="">
+    <input type="submit">
+    </form>
+    
+    @include('scripts.add-button')
 
     @endauth
 @endsection

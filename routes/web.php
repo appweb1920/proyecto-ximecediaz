@@ -21,6 +21,7 @@ Route::get('/', function(){ return view('home');});
 
 Route::get('/imagen', 'ImagenController@imagen');
 Route::post('/guardaImagen', 'ImagenController@guardaImagen');
+Route::post('/agregaSecciones', 'CategoriasController@store');
 
 Route::get('/iniAdmin', 'AdminController@inicio');
 Auth::routes();

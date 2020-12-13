@@ -15,11 +15,5 @@ class CategoriasSeeder extends Seeder
         DB::table('secciones')->insert([
             'seccion' => 'Naturaleza',
         ]);
-        DB::table('secciones')->insert([
-            'seccion' => 'Comida',
-        ]);
-        DB::table('secciones')->insert([
-            'seccion' => 'Animales',
-        ]);
     }
 }

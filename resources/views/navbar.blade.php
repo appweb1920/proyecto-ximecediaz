@@ -12,6 +12,7 @@
 
     <script src="https://use.fontawesome.com/fa97ce5990.js"></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     
     <title>Document</title>
 </head>
