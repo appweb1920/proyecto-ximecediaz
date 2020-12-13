@@ -8,8 +8,6 @@ use Illuminate\Support\Facades\DB;
 class Secciones extends Model
 {
     protected $table="secciones";
-    protected $fillable=['seccion'];
-
-    
+    protected $fillable=['seccion', 'idImagen'];
 
 }

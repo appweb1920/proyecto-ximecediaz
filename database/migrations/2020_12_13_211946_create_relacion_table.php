@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSeccionesTable extends Migration
+class CreateRelacionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateSeccionesTable extends Migration
      */
     public function up()
     {
-        Schema::create('secciones', function (Blueprint $table) {
+        Schema::create('relaciones', function (Blueprint $table) {
             $table->id();
-            $table->string('seccion');
-            $table->unsignedBigInteger('idImagen')->nullable();
-            $table->foreign('idImagen')->references('id')->on('imagen');
             $table->timestamps();
+            $table->unsignedBigInteger('idImagen');
+            $table->unsignedBigInteger('idSeccion');
+            $table->foreign('idImagen')->references('id')->on('imagen');
+            $table->foreign('idSeccion')->references('id')->on('secciones');
         });
     }
 
@@ -29,6 +30,6 @@ class CreateSeccionesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('secciones');
+        Schema::dropIfExists('relaciones');
     }
 }

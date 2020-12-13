@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Secciones;
+use App\Imagenes;
+use App\Relacion;
 
 class ImagenController extends Controller
 {
@@ -15,7 +17,7 @@ class ImagenController extends Controller
      */
     public function index()
     {
-        //
+        $imagenes = Imagenes::all();
     }
 
     /**
@@ -92,23 +94,28 @@ class ImagenController extends Controller
 
     public function guardaImagen(Request $request)
     {
+        $secciones = Secciones::all();
         $imagen = $request->file('imagen');
-        //$nombre = "ejemplo.png";
+        $nombre = $imagen->getClientOriginalName();
         
         if($imagen->getClientOriginalExtension()!="png"){
             return "no se soporta el archivo";
         }else{
            $path = $request->file('imagen')->storeAs(
-            '/public/imgs', "hola".".".$imagen->getClientOriginalExtension()
+            '/public/imgs', $nombre
             ); 
         }
         
+        $imagenes = new Imagenes;
+        $imagenes->titulo = $request->titulo;
+        $imagenes->nombre = $nombre;
+        $imagenes->save();
+        $relacion = new relacion;
 
-        /*$path = $imagen->path();
+        $idSecciones = $request->get('categorias');
+        $relacion->idSeccion = $secciones->get($idSecciones);
+        $relacion->idImagen = $imagenes->id;
         
-        $imagen->mover('../public_html/img/', $imagen);
-*/
-
-        dd($path);
+        return view('home');//->with('imagenes', $imagenes);
     }
 }
