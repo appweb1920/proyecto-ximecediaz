@@ -30,11 +30,12 @@
   <a class="btn btn-primary btn-lg btn-block" href="/imagen">Agregar imágenes</a>
   </div>
   @endauth
-  <div class="fotos">
+  <div class="fotos container justify-content-center">
+    <div class="row justify-items-center">
     @if(!is_null($imagenes))
       @foreach($imagenes as $i)
-         <span>{{$i->titulo}}</span>
+        <div class="col-sm-6 col-lg-4 mt-3 mt-md-5"><img src="{{asset('/storage/imgs/'.$i->nombre) }}" alt="" class="img-fluid"></div>
       @endforeach
     @endif
-  </div>
+  </div></div>
 @endsection
