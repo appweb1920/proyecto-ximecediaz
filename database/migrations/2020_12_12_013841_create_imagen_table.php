@@ -17,6 +17,7 @@ class CreateImagenTable extends Migration
             $table->id();
             $table->string('titulo');
             $table->string('nombre')->unique();
+            $table->string('extension');
             $table->timestamps();
         });
     }

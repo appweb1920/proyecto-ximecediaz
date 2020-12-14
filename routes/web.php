@@ -21,6 +21,9 @@ Route::get('/', 'ImagenController@index');
 
 Route::get('/imagen', 'ImagenController@imagen');
 Route::post('/guardaImagen', 'ImagenController@guardaImagen');
+Route::post('/buscaImagen', 'ImagenController@buscaImagen');
+Route::get('/resultados', 'ImagenController@resultados');
+
 Route::post('/agregaSecciones', 'CategoriasController@store');
 
 Route::get('/iniAdmin', 'AdminController@inicio');

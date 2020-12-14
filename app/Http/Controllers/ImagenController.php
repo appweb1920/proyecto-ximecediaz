@@ -109,7 +109,8 @@ class ImagenController extends Controller
         
         $foto = new Imagenes;
         $foto->titulo = $request->titulo;
-        $foto->nombre = $nombre;
+        $foto->extension = $imagen->getClientOriginalExtension();
+        $foto->nombre = pathinfo($nombre, PATHINFO_FILENAME);
         $foto->save();
         $relacion = new relacion;
 
@@ -118,6 +119,22 @@ class ImagenController extends Controller
         $relacion->idImagen = $foto->id;
         
         $imagenes = Imagenes::all();
-        return view('home')->with('imagenes', $imagenes);
+        return redirect('/')->with('imagenes', $imagenes);
+    }
+
+    public function buscaImagen(Request $request)
+    {
+        $palabra = $request->search;
+        $resultados = Imagenes::query()
+        ->where('nombre', 'like', "%%  {$palabra} ")
+        ->orWhere('nombre', 'like', "%%  {$palabra}")
+        ->orWhere('nombre', 'like', "{$palabra} %%")
+        ->orWhere('nombre', 'like', "{$palabra}")
+        ->orWhere('titulo', 'like', "%%  {$palabra}")
+        ->orWhere('titulo', 'like', "{$palabra} %%")
+        ->orWhere('titulo', 'like', "{$palabra}")
+        ->orderBy('created_at', 'desc')
+        ->get();
+        return view('/resultados')->with('resultados', $resultados);
     }
 }
