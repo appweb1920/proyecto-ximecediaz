@@ -22,12 +22,18 @@ Route::get('/', 'ImagenController@index');
 Route::get('/imagen', 'ImagenController@imagen');
 Route::post('/guardaImagen', 'ImagenController@guardaImagen');
 Route::post('/buscaImagen', 'ImagenController@buscaImagen');
+Route::get('/resultados', 'ImagenController@resultados');
 Route::get('/verImg/{id}', 'ImagenController@ver');
+Route::get('/editarImg/{id}', 'ImagenController@muestraEditor');
+Route::post('/editarImagen', 'ImagenController@guardaEdicion');
 Route::get('/guardarImg/{id}', 'ImagenController@guardar');
+Route::get('/borrarImg/{id}','ImagenController@destroy');
 
 Route::post('/agregaSecciones', 'CategoriasController@store');
 Route::get('/categorias', 'CategoriasController@index');
 Route::get('/verCategoria/{id}', 'CategoriasController@ver');
+
+
 
 Route::get('/iniAdmin', 'AdminController@inicio');
 Auth::routes();

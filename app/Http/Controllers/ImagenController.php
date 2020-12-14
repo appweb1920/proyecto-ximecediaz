@@ -86,7 +86,11 @@ class ImagenController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $imagen = imagenes::find($id);
+        $relacion = Relacion::find($id);
+        $relacion->delete();
+        $imagen->delete();
+        return redirect('/');
     }
 
     public function imagen()
@@ -161,4 +165,24 @@ class ImagenController extends Controller
         $filepath = public_path('storage\\imgs\\').$imagen->nombre.".".$imagen->extension;
         return response()->download($filepath);
     }
+
+    public function muestraEditor($id)
+    {
+        // buscar dato
+        $imagen = imagenes::find($id);
+        // pasar el dato a la vista
+        return view('editarImg')->with('imagen',$imagen);
+    }
+
+    public function guardaEdicion(Request $request)
+    {
+        $imagen = Imagenes::find($request->id);
+        if(!is_null($imagen)){
+            $imagen->titulo = $request->titulo;
+            $imagen->save();
+        }
+        return view('verImg')->with('imagen',$imagen);
+    }
+
+
 }

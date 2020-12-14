@@ -38,14 +38,16 @@ class CategoriasController extends Controller
      */
     public function store(Request $request)
     {
+        session(['link' => url()->previous()]);
         $num = $request->num;
         foreach($request->seccion as $seccion){
            $secciones = new Secciones;
            $secciones->seccion = $seccion;
            $secciones->save();
         }
-        return redirect('/imagen');
+        return redirect(session('link'));
     }
+
 
     /**
      * Display the specified resource.
