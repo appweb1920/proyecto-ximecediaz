@@ -83,6 +83,32 @@
 </nav>
 
 @yield('contenido')
+  <footer class="page-footer font-small blue mt-4">
+    <div class="footer-copyright text-center pt-3 pb-3">
+      <div class="row">
+        <div class="col">
+          <span>Desarrollado por Ximena Cervantes</span>
+        </div>
+        <div class="row position-absolute m-3">
+          <div class="col-4">
+            <a href="https://www.facebook.com/ximecediazIG/">
+              <i class="fab fa-facebook"></i>
+            </a>
+          </div>
+          <div class="col-4">
+            <a href="https://www.instagram.com/ximecediaz/">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+          <div class="col-4">
+            <a href="https://www.behance.net/ximenadaz">
+              <i class="fab fa-behance"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 
 </body>
 

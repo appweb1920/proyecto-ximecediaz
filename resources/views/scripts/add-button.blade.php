@@ -4,7 +4,7 @@
         var addButton = $('.add_boton'); //Botón de añadir
         var inputBox = $('.inputs');
         var x = 1; //Input inicial
-        var inputHTML = '<div class="input_box"><input type="text" name="seccion[]" value=""/><a href="javascript:void(0);" class="remove_boton"><i class="fas fa-minus-circle fa-2x text-info"></i></a></div>'
+        var inputHTML = '<div class="input_box mt-3 row"><input type="text" name="seccion[]" value=""/><a href="javascript:void(0);" class="remove_boton"><i class="fas fa-times-circle fa-2x text-info ml-3"></i></a></div>'
         
         var num = $('.num');
 

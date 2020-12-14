@@ -3,15 +3,20 @@
 @section('contenido')
   <div class="imagen d-flex align-items-center">
     <div class="col col-12">
-      <div class="row justify-content-center mb-5">
+      <div class="row justify-content-center mb-2">
           <div>
-            <h1>Lorem ipsum dolor sit amet.</h1>
+            <h1 class="text-white">Imágenes gratis para descargar</h1>
           </div>
+      </div>
+      <div class="row justify-content-center mb-5">
+        <span class="text-center text-light" style="max-width: 50%; ">
+        Este banco de imágenes está conformado por más de 200 imágenes libres de derecho de autor, completamente gratuitas y de alta calidad.
+      </span>
       </div>
       <form action="/buscaImagen" method="POST">
         @csrf
         <div class="row justify-content-center">
-          <div class="input-group md-form form-sm form-2 pl-0" style="max-width: 80%;">
+          <div class="input-group md-form form-sm form-2 pl-0" style="max-width: 70%;">
             <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search" name="search">
             <div class="input-group-append">
               <span class="input-group-text bg-danger lighten-3" id="basic-text1">
@@ -23,7 +28,7 @@
       </form>
 
       <div class="row justify-content-center mt-4">
-        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, illo!</span>
+        <span class="text-white">Busca por nombre, categoría, tipo de archivo...</span>
       </div>
     </div>
   </div>

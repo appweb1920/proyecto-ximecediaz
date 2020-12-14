@@ -100,12 +100,15 @@ class CategoriasController extends Controller
         $imagenes = array();
         $img = new Imagenes;
         $relacion = Relacion::select("*")->where('idSeccion', $seccion->id)->get();
-        
-        foreach($relacion as $r){
-            $id = $r->idImagen;
-            $img = Imagenes::find($id);
-            $imagenes[] = $img;
+        if($relacion){
+            foreach($relacion as $r){
+                $id = $r->idImagen;
+                $img = Imagenes::find($id);
+                $imagenes[] = $img;
+            }
+            return view('/resultados')->with('resultados', $imagenes);
+        }else{
+            return view('/resultados');
         }
-        return view('/resultados')->with('resultados', $imagenes);
     }
 }

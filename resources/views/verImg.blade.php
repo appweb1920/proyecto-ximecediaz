@@ -3,15 +3,18 @@
 @section('contenido')
 
     @if(!is_null($imagen))
-        <div class="container">
-        <h1>{{$imagen->titulo}}</h1>
+        <div class="container mt-4">
+        <h1 class="mb-3 text-center">{{$imagen->titulo}}</h1>
         <div class="row">
         <div class="col-6">
             <img src="{{asset('/storage/imgs/'.$imagen->nombre.'.'.$imagen->extension) }}" alt="" class="img-fluid">
         </div>
         <div class="col-6">
             <div class="row">
-                <p>{{$imagen->nombre}}</p>
+                <h4>Información general</h4>
+            </div>
+            <div class="row">
+                <div class="h6">Nombre de archivo: {{$imagen->nombre}}</div>
             </div>
             <div class="row">
                 <p>Extension: {{$imagen->extension}}</p>
