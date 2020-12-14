@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Storage;
 use App\Secciones;
 use App\Imagenes;
 use App\Relacion;
+use \Illuminate\Http\Response;
+use League\CommonMark\Inline\Element\Strong;
 
 class ImagenController extends Controller
 {
@@ -98,10 +100,13 @@ class ImagenController extends Controller
         $secciones = Secciones::all();
         $imagen = $request->file('imagen');
         $nombre = $imagen->getClientOriginalName();
-        
-        if($imagen->getClientOriginalExtension()!="png"){
-            return "no se soporta el archivo";
-        }else{
+        $extension = $imagen->getClientOriginalExtension();
+
+        if($extension != "jpg"){
+            return $extension;
+        }/*else if($extension != "jpg"){
+            return $extension;  
+        }*/else{
            $path = $request->file('imagen')->storeAs(
             '/public/imgs', $nombre
             ); 
@@ -114,10 +119,11 @@ class ImagenController extends Controller
         $foto->save();
         $relacion = new relacion;
 
-        $idSecciones = $request->get('categorias');
-        $relacion->idSeccion = $secciones->get($idSecciones);
+        $idSecciones = $request->categorias;
+        $relacion->idSeccion = $idSecciones;
         $relacion->idImagen = $foto->id;
-        
+        $relacion->save();
+
         $imagenes = Imagenes::all();
         return redirect('/')->with('imagenes', $imagenes);
     }
@@ -133,8 +139,26 @@ class ImagenController extends Controller
         ->orWhere('titulo', 'like', "%%  {$palabra}")
         ->orWhere('titulo', 'like', "{$palabra} %%")
         ->orWhere('titulo', 'like', "{$palabra}")
+        ->orWhere('extension', 'like', "%%  {$palabra}")
+        ->orWhere('extension', 'like', "{$palabra} %%")
+        ->orWhere('extension', 'like', "{$palabra}")
         ->orderBy('created_at', 'desc')
         ->get();
         return view('/resultados')->with('resultados', $resultados);
+    }
+
+    public function ver($id)
+    {
+        // buscar dato
+        $imagen = Imagenes::find($id);
+        // pasar el dato a la vista
+        return view('verImg')->with('imagen',$imagen);
+    }
+
+    public function guardar($id)
+    {
+        $imagen = Imagenes::find($id);
+        $filepath = public_path('storage\\imgs\\').$imagen->nombre.".".$imagen->extension;
+        return response()->download($filepath);
     }
 }

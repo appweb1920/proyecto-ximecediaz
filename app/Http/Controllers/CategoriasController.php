@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Imagenes;
 use Illuminate\Http\Request;
 use App\Secciones;
+use App\Relacion;
 
 class CategoriasController extends Controller
 {
@@ -15,6 +17,7 @@ class CategoriasController extends Controller
     public function index()
     {
         $secciones = Secciones::all();
+        return view('/categorias')->with('secciones',$secciones);
     }
 
     /**
@@ -87,5 +90,20 @@ class CategoriasController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function ver($id)
+    {
+        $seccion = Secciones::find($id);
+        $imagenes = array();
+        $img = new Imagenes;
+        $relacion = Relacion::select("*")->where('idSeccion', $seccion->id)->get();
+        
+        foreach($relacion as $r){
+            $id = $r->idImagen;
+            $img = Imagenes::find($id);
+            $imagenes[] = $img;
+        }
+        return view('/resultados')->with('resultados', $imagenes);
     }
 }

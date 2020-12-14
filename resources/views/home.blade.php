@@ -36,8 +36,8 @@
     <div class="row justify-items-center">
     @if(!is_null($imagenes))
       @foreach($imagenes as $i)
-        <div class="col-sm-6 col-lg-4 mt-3 mt-md-5"><img src="{{asset('/storage/imgs/'.$i->nombre.'.'.$i->extension) }}" alt="" class="img-fluid"></div>
+        <div class="col-sm-6 col-lg-3 mt-3 mt-md-5"><a href="/verImg/{{$i->id}}"><img src="{{asset('/storage/imgs/'.$i->nombre.'.'.$i->extension) }}" alt="" class="img-fluid"></a></div>
       @endforeach
     @endif
-  </div></div>
+  </div></div></div>
 @endsection

@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.15.1",
-        "font-awesome": "^4.7.0"
+        "font-awesome": "^4.7.0",
+        "masonry-layout": "^4.2.2"
     }
 }

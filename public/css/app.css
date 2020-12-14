@@ -17026,3 +17026,13 @@ readers do not read off random characters that represent icons */
   height: 400px;
 }
 
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+

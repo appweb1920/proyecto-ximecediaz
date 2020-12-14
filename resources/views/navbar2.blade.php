@@ -37,7 +37,23 @@
         <a class="nav-link" href="/categorias">Categorías</a>
       </li>
     </ul>
+    <div class="busqueda ml-5">
+        <form class="form-inline my-2 my-lg-0" action="/buscaImagen" method="POST">
+            @csrf
+            <div class="row justify-content-center">
+            <div class="input-group md-form form-sm form-2 pl-0" style="max-width: 100%;">
+                <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search" name="search">
+                <div class="input-group-append">
+                <span class="input-group-text bg-danger lighten-3" id="basic-text1">
+                    <i class="fas fa-search"></i>
+                </span>
+                </div>
+            </div>
+            </div>
+        </form>
+      </div>
   </div>
+  
   @auth
   <ul class="navbar-nav ml-auto mr-4">
     <li class="nav-item"><i class="fas fa-user"></i></li>
